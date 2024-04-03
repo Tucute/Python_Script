@@ -11,7 +11,7 @@ def read_csv_and_print(file_path):
         
         
         newTable = create_table(A_TCURF)
-        
+        newTable.to_csv('B_SS00_SS02_01_TT_TCURF_FILT_ORDER_BY_NEW.csv', sep='\t', index=False)
         # return A_TCURF
         print("Data Mới:")
         # print(newTable)
