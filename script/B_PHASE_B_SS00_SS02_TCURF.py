@@ -25,14 +25,15 @@ def create_table_B_SS00_SS02_02_TT_TCURF_ORDER_BY(B_SS00_SS02_01_TT_TCURF_FILT):
     B_SS00_SS02_01_TT_TCURF_FILT.drop(B_SS00_SS02_01_TT_TCURF_FILT.index, inplace=True)
     return B_SS00_SS02_02_TT_TCURF_ORDER_BY
 
-
-# -- Step 3/ Get the last factors and date
-
 def create_table_B_SS00_SS02_03_IT_TCURF_LATEST_VALS(df):
     df_sorted = df.sort_values(by='TCURF_GDATU', ascending=False)
+    
     df_sorted['rnk'] = df_sorted.groupby(['TCURF_FCURR', 'TCURF_TCURR']).cumcount() + 1
+    
     latest_vals = df_sorted[df_sorted['rnk'] == 1]
+    
     latest_vals.drop(columns=['rnk'], inplace=True)
+    
     final_table = latest_vals.sort_values(by=['TCURF_FCURR', 'TCURF_TCURR', 'TCURF_FFACT', 'TCURF_TFACT', 'TCURF_GDATU'])
     
     return final_table
