@@ -3,8 +3,8 @@ import pandas as pd
 def compare_csv_files(file_path1, file_path2):
     try:
         # Đọc dữ liệu từ hai tệp CSV vào hai DataFrame
-        df1 = pd.read_csv(file_path1)
-        df2 = pd.read_csv(file_path2)
+        df1 = pd.read_csv(file_path1,sep='\t')
+        df2 = pd.read_csv(file_path2, sep='\t')
         
         # So sánh hai DataFrame
         if df1.equals(df2):

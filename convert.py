@@ -6,7 +6,7 @@ def read_csv_and_print(file_path_1, file_path_2):
         A_TCURF = pd.read_csv(file_path_1, sep='\t')
         newTable = create_table_1(A_TCURF)
         print(newTable)
-        newTable.to_csv('B_SS00_SS02_01_TT_TCURF_FILT_ORDER_BY_NEW.csv', sep='\t', index=False)
+        newTable.to_csv('B_SS00_SS02_01_TT_TCURF_ORDER_BY.csv', sep='\t', index=False)
      
         A_TCURX = pd.read_csv(file_path_2, sep='\t')
         newTable = create_table_2(A_TCURX)
